@@ -216,24 +216,30 @@
   .kits .section-h em { color: var(--yellow); }
   .kits-header { text-align: center; }
   .kits-grid {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 24px; align-items: end;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
   }
-  @media (max-width: 768px) { .kits-grid { grid-template-columns: 1fr; } }
+
   .kit-card {
     background: #1a2b1b;
     border: 2px solid rgba(245,200,0,0.15);
-    border-radius: 12px; padding: 36px 24px;
-    text-align: center; position: relative;
+    border-radius: 12px;
+    padding: 36px 24px 28px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     transition: border-color .3s, transform .3s;
   }
   .kit-card:hover { border-color: var(--yellow); transform: translateY(-6px); }
   .kit-card.best {
     border-color: var(--yellow);
     background: #1f3320;
-    transform: scale(1.04);
+    box-shadow: 0 0 32px rgba(245,200,0,0.15);
   }
-  .kit-card.best:hover { transform: scale(1.04) translateY(-6px); }
+
   .kit-badge {
     position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
     background: var(--yellow); color: var(--dark);
@@ -251,20 +257,31 @@
   .kit-card h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 1.4rem; font-weight: 700; color: var(--white);
-    text-transform: uppercase; margin-bottom: 20px;
+    text-transform: uppercase; margin-bottom: 16px;
   }
-  .kit-img { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-  .kit-img img { max-height: 180px; max-width: 100%; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4)); }
+  .kit-img {
+    height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; flex-shrink: 0;
+  }
+  .kit-img img {
+    max-height: 160px; max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+  }
   .kit-price {
     font-family: 'Oswald', sans-serif;
-    font-size: 2.2rem; font-weight: 700; color: var(--yellow);
+    font-size: 2.4rem; font-weight: 700; color: var(--yellow);
     line-height: 1; margin-bottom: 4px;
   }
   .kit-price sup { font-size: 1rem; vertical-align: super; }
-  .kit-info { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 24px; min-height: 20px; }
+  .kit-info {
+    font-size: 0.82rem; color: rgba(255,255,255,0.45);
+    margin-bottom: 16px; min-height: 20px;
+  }
   .kit-info.free { color: #6ddb8a; font-weight: 600; }
-  .kit-seal { margin-bottom: 20px; }
-  .kit-seal img { height: 60px; opacity: 0.85; }
+  .kit-seal { margin-bottom: 16px; flex-grow: 1; display: flex; align-items: flex-end; justify-content: center; }
+  .kit-seal img { height: 56px; opacity: 0.85; }
   .kit-btn {
     display: block; width: 100%;
     background: var(--yellow); color: var(--dark);
@@ -274,6 +291,7 @@
     padding: 15px; border-radius: 4px;
     text-decoration: none; border: none; cursor: pointer;
     transition: background .2s, transform .2s;
+    flex-shrink: 0;
   }
   .kit-btn:hover { background: var(--yellow2); }
   .kit-btn.outline {
@@ -281,6 +299,53 @@
     border: 2px solid var(--yellow);
   }
   .kit-btn.outline:hover { background: rgba(245,200,0,0.1); }
+
+  /* ── KITS MOBILE ── */
+  @media (max-width: 860px) {
+    .kits-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .kit-card {
+      /* horizontal layout on mobile */
+      flex-direction: row;
+      flex-wrap: wrap;
+      text-align: left;
+      padding: 28px 20px 22px;
+      gap: 0;
+    }
+    .kit-card.best { box-shadow: 0 0 24px rgba(245,200,0,0.18); }
+    .kit-badge {
+      left: 20px; transform: none;
+      font-size: 0.68rem; padding: 4px 12px;
+    }
+    .kit-img {
+      width: 110px; height: 110px;
+      flex-shrink: 0; margin: 0 16px 0 0;
+      align-self: center;
+    }
+    .kit-img img { max-height: 110px; }
+    .kit-content-right {
+      flex: 1; display: flex; flex-direction: column; justify-content: center;
+    }
+    .kit-type { font-size: 0.7rem; margin-bottom: 2px; }
+    .kit-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .kit-price { font-size: 2rem; margin-bottom: 2px; }
+    .kit-info { margin-bottom: 10px; font-size: 0.8rem; }
+    .kit-seal { display: none; }
+    .kit-btn { font-size: 0.9rem; padding: 12px; }
+    .kit-btn-wrap { width: 100%; margin-top: 14px; }
+  }
+
+  @media (max-width: 480px) {
+    .kits-grid { max-width: 100%; }
+    .kit-card { padding: 28px 16px 18px; }
+    .kit-img { width: 90px; height: 90px; }
+    .kit-img img { max-height: 90px; }
+    .kit-price { font-size: 1.8rem; }
+  }
 
   /* ── SABIAQUES ── */
   .sabia { background: var(--green2); }
@@ -507,42 +572,48 @@
 
     <!-- 1 unidade -->
     <div class="kit-card reveal">
-      <div class="kit-type">Tratamento 3 meses</div>
-      <h3>1 Unidade</h3>
       <div class="kit-img">
         <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/01.webp" alt="1 Unidade"/>
       </div>
-      <div class="kit-price"><sup>R$</sup>29,90</div>
-      <div class="kit-info">&nbsp;</div>
-      <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
-      <a href="#" class="kit-btn outline">COMPRAR AGORA</a>
+      <div class="kit-content-right">
+        <div class="kit-type">Tratamento 3 meses</div>
+        <h3>1 Unidade</h3>
+        <div class="kit-price"><sup>R$</sup>29,90</div>
+        <div class="kit-info">&nbsp;</div>
+        <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
+        <div class="kit-btn-wrap"><a href="#" class="kit-btn outline">COMPRAR AGORA</a></div>
+      </div>
     </div>
 
     <!-- 3 unidades -->
     <div class="kit-card best reveal">
       <div class="kit-badge">⭐ MAIS ECONÔMICO</div>
-      <div class="kit-type">Tratamento 5 meses</div>
-      <h3>3 Unidades</h3>
       <div class="kit-img">
         <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/3-unidades.webp" alt="3 Unidades"/>
       </div>
-      <div class="kit-price"><sup>R$</sup>79,90</div>
-      <div class="kit-info">Estoque garantido</div>
-      <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
-      <a href="#" class="kit-btn">COMPRAR AGORA</a>
+      <div class="kit-content-right">
+        <div class="kit-type">Tratamento 5 meses</div>
+        <h3>3 Unidades</h3>
+        <div class="kit-price"><sup>R$</sup>79,90</div>
+        <div class="kit-info">Estoque garantido</div>
+        <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
+        <div class="kit-btn-wrap"><a href="#" class="kit-btn">COMPRAR AGORA</a></div>
+      </div>
     </div>
 
     <!-- 6 unidades -->
     <div class="kit-card reveal">
-      <div class="kit-type">Tratamento 12 meses</div>
-      <h3>6 Unidades</h3>
       <div class="kit-img">
         <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/06unid.webp" alt="6 Unidades"/>
       </div>
-      <div class="kit-price"><sup>R$</sup>149,90</div>
-      <div class="kit-info free">🚚 FRETE GRÁTIS</div>
-      <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
-      <a href="#" class="kit-btn outline">COMPRAR AGORA</a>
+      <div class="kit-content-right">
+        <div class="kit-type">Tratamento 12 meses</div>
+        <h3>6 Unidades</h3>
+        <div class="kit-price"><sup>R$</sup>149,90</div>
+        <div class="kit-info free">🚚 FRETE GRÁTIS</div>
+        <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
+        <div class="kit-btn-wrap"><a href="#" class="kit-btn outline">COMPRAR AGORA</a></div>
+      </div>
     </div>
 
   </div>
