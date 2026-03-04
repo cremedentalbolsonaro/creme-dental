@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Creme Dental Bolsonaro – Sorriso com Orgulho</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --green:  #1a7a2e;
+    --green2: #0f5c1f;
+    --green3: #145c25;
+    --yellow: #f5c800;
+    --yellow2:#e6b800;
+    --dark:   #0d1f0f;
+    --white:  #ffffff;
+    --offwhite: #f4f9f5;
+    --gray:   #5a6a5d;
+    --lightgreen: #e8f4ea;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--dark);
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--green2);
+    text-align: center;
+    padding: 9px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--yellow);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .topbar span { color: #fff; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--dark);
+    padding: 14px 6vw;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 3px solid var(--yellow);
+  }
+  .logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--white); letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--yellow); }
+  .nav-btn {
+    background: var(--yellow); color: var(--dark);
+    border: none; border-radius: 4px;
+    padding: 10px 22px; font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    cursor: pointer; text-decoration: none;
+    transition: background .2s, transform .2s;
+  }
+  .nav-btn:hover { background: var(--yellow2); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--green2) 60%, var(--green) 100%);
+    padding: 70px 6vw 60px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 40px; align-items: center; min-height: 85vh;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(245,200,0,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--yellow); color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 2px;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--white); text-transform: uppercase;
+    letter-spacing: 0.02em; margin-bottom: 18px;
+  }
+  .hero h1 em { color: var(--yellow); font-style: normal; }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,0.75);
+    line-height: 1.7; margin-bottom: 36px; max-width: 460px;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--yellow); color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 18px 40px; border-radius: 4px;
+    text-decoration: none; border: none; cursor: pointer;
+    box-shadow: 0 6px 28px rgba(245,200,0,0.45);
+    transition: transform .2s, box-shadow .2s;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(245,200,0,0.55); }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 6px 28px rgba(245,200,0,0.45); }
+    50%      { box-shadow: 0 6px 40px rgba(245,200,0,0.7); }
+  }
+  .hero-trust {
+    display: flex; flex-wrap: wrap; gap: 18px; margin-top: 28px;
+  }
+  .trust-chip {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.8rem; color: rgba(255,255,255,0.65); font-weight: 500;
+  }
+  .trust-chip::before { content: '✔'; color: var(--yellow); font-size: 0.75rem; }
+
+  .hero-img { position: relative; z-index: 2; text-align: center; }
+  .hero-img img { width: 100%; max-width: 420px; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5)); animation: floatImg 4s ease-in-out infinite; }
+  @keyframes floatImg {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+  }
+
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; text-align: center; min-height: auto; padding-top: 50px; }
+    .hero-sub, .hero h1 { max-width: 100%; }
+    .hero-trust { justify-content: center; }
+    .hero-img { order: -1; }
+    .hero-img img { max-width: 280px; }
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    background: var(--yellow);
+    overflow: hidden; padding: 14px 0;
+  }
+  .marquee-track {
+    display: flex; white-space: nowrap;
+    animation: marquee 18s linear infinite;
+  }
+  .marquee-track span {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 0 24px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--dark);
+  }
+  .marquee-track span::after { content: '★'; color: var(--green); opacity: 0.5; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 80px 6vw; }
+  .section-tag {
+    display: inline-block;
+    background: var(--yellow); color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 2px; margin-bottom: 14px;
+  }
+  .section-h {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.02em; line-height: 1.15;
+    margin-bottom: 40px;
+  }
+  .section-h em { color: var(--green); font-style: normal; }
+
+  /* ── BENEFITS ── */
+  .benefits { background: var(--offwhite); }
+  .benefits-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  @media (max-width: 768px) { .benefits-inner { grid-template-columns: 1fr; } }
+  .benefits-img img { width: 100%; border-radius: 12px; }
+  .benefit-list { display: flex; flex-direction: column; gap: 20px; }
+  .benefit-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px 22px;
+    background: var(--white);
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform .2s;
+  }
+  .benefit-item:hover { transform: translateX(4px); }
+  .benefit-icon { font-size: 1.7rem; flex-shrink: 0; }
+  .benefit-item h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .benefit-item p { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+
+  /* ── KITS ── */
+  .kits { background: var(--dark); }
+  .kits .section-h { color: var(--white); }
+  .kits .section-h em { color: var(--yellow); }
+  .kits-header { text-align: center; }
+  .kits-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 24px; align-items: end;
+  }
+  @media (max-width: 768px) { .kits-grid { grid-template-columns: 1fr; } }
+  .kit-card {
+    background: #1a2b1b;
+    border: 2px solid rgba(245,200,0,0.15);
+    border-radius: 12px; padding: 36px 24px;
+    text-align: center; position: relative;
+    transition: border-color .3s, transform .3s;
+  }
+  .kit-card:hover { border-color: var(--yellow); transform: translateY(-6px); }
+  .kit-card.best {
+    border-color: var(--yellow);
+    background: #1f3320;
+    transform: scale(1.04);
+  }
+  .kit-card.best:hover { transform: scale(1.04) translateY(-6px); }
+  .kit-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--yellow); color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 18px; border-radius: 2px; white-space: nowrap;
+  }
+  .kit-type {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: rgba(245,200,0,0.7); margin-bottom: 6px;
+  }
+  .kit-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--white);
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .kit-img { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .kit-img img { max-height: 180px; max-width: 100%; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4)); }
+  .kit-price {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem; font-weight: 700; color: var(--yellow);
+    line-height: 1; margin-bottom: 4px;
+  }
+  .kit-price sup { font-size: 1rem; vertical-align: super; }
+  .kit-info { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 24px; min-height: 20px; }
+  .kit-info.free { color: #6ddb8a; font-weight: 600; }
+  .kit-seal { margin-bottom: 20px; }
+  .kit-seal img { height: 60px; opacity: 0.85; }
+  .kit-btn {
+    display: block; width: 100%;
+    background: var(--yellow); color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 15px; border-radius: 4px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background .2s, transform .2s;
+  }
+  .kit-btn:hover { background: var(--yellow2); }
+  .kit-btn.outline {
+    background: transparent; color: var(--yellow);
+    border: 2px solid var(--yellow);
+  }
+  .kit-btn.outline:hover { background: rgba(245,200,0,0.1); }
+
+  /* ── SABIAQUES ── */
+  .sabia { background: var(--green2); }
+  .sabia .section-h { color: var(--white); }
+  .sabia .section-h em { color: var(--yellow); }
+  .sabia-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  @media (max-width: 768px) { .sabia-inner { grid-template-columns: 1fr; } }
+  .sabia-img img { width: 100%; border-radius: 12px; }
+  .sabia-list { display: flex; flex-direction: column; gap: 16px; }
+  .sabia-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px; border: 1px solid rgba(245,200,0,0.15);
+    transition: background .2s;
+  }
+  .sabia-item:hover { background: rgba(255,255,255,0.11); }
+  .sabia-check { color: var(--yellow); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+  .sabia-item p { font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.6; }
+  .sabia-item strong { color: var(--yellow); }
+
+  /* ── STEPS ── */
+  .steps { background: var(--offwhite); }
+  .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+  @media (max-width: 900px) { .steps-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .steps-grid { grid-template-columns: 1fr; } }
+  .step-card {
+    background: var(--white);
+    border-radius: 10px; padding: 32px 24px;
+    text-align: center; position: relative;
+    border: 1px solid #e0e8e2;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .step-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.1); transform: translateY(-4px); }
+  .step-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem; font-weight: 700;
+    color: var(--yellow); line-height: 1; margin-bottom: 12px;
+    -webkit-text-stroke: 1px var(--green);
+  }
+  .step-card h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--green); margin-bottom: 8px; }
+  .step-card p { font-size: 0.84rem; color: var(--gray); line-height: 1.6; }
+
+  /* ── FORMULA ── */
+  .formula { background: var(--dark); }
+  .formula .section-h { color: var(--white); }
+  .formula .section-h em { color: var(--yellow); }
+  .formula-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+  @media (max-width: 600px) { .formula-grid { grid-template-columns: 1fr; } }
+  .formula-card {
+    background: #1a2b1b;
+    border: 1px solid rgba(245,200,0,0.15);
+    border-radius: 10px; padding: 28px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    transition: border-color .3s;
+  }
+  .formula-card:hover { border-color: rgba(245,200,0,0.5); }
+  .formula-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .formula-card h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; color: var(--yellow); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .formula-card p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--offwhite); }
+  .faq-container { max-width: 720px; margin: 0 auto; }
+  .faq-item {
+    background: var(--white); border-radius: 8px;
+    border: 1px solid #dce8de; margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; text-align: left; background: none; border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.97rem; font-weight: 600;
+    color: var(--dark); padding: 20px 22px;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .faq-q .arrow {
+    width: 24px; height: 24px; flex-shrink: 0;
+    background: var(--green); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; transition: transform .3s; font-style: normal;
+  }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s ease, padding .3s;
+    padding: 0 22px; font-size: 0.88rem; color: var(--gray); line-height: 1.7;
+  }
+  .faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+  .faq-item.open .faq-a { max-height: 180px; padding: 0 22px 20px; }
+
+  /* ── FINAL CTA ── */
+  .final {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--green2) 100%);
+    text-align: center; border-top: 4px solid var(--yellow);
+  }
+  .final h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 700; text-transform: uppercase;
+    color: var(--white); margin-bottom: 16px;
+  }
+  .final h2 em { color: var(--yellow); font-style: normal; }
+  .final p { color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+  .final-btn {
+    display: inline-block;
+    background: var(--yellow); color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 20px 52px; border-radius: 4px;
+    text-decoration: none; border: none; cursor: pointer;
+    box-shadow: 0 6px 32px rgba(245,200,0,0.4);
+    transition: transform .2s, box-shadow .2s;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  .final-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(245,200,0,0.55); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080f09; padding: 24px 6vw;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+    font-size: 0.78rem; color: rgba(255,255,255,0.35);
+    border-top: 2px solid rgba(245,200,0,0.2);
+  }
+  footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+  footer a:hover { color: var(--yellow); }
+  .footer-links { display: flex; gap: 20px; }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">🚚 <span>Frete grátis</span> no kit com 6 unidades · Estoque limitado!</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Bolsonaro <span>Creme Dental</span></div>
+  <a href="#kits" class="nav-btn">Comprar Agora</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Fórmula Exclusiva · 2025</div>
+    <h1>Sorriso com <em>orgulho</em>.<br/>Todo dia, em<br/>qualquer lugar.</h1>
+    <p class="hero-sub">Dentes limpos, hálito refrescante e proteção contra cáries — com a qualidade e confiança que você merece.</p>
+    <a href="#kits" class="hero-cta">QUERO MEU CREME DENTAL AGORA</a>
+    <div class="hero-trust">
+      <div class="trust-chip">Flúor Ativo</div>
+      <div class="trust-chip">Sabor Menta</div>
+      <div class="trust-chip">Para toda a família</div>
+      <div class="trust-chip">Qualidade Nacional</div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/3-unidades.webp" alt="Creme Dental Bolsonaro 3 unidades" onerror="this.style.opacity=0"/>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Sorriso Saudável</span><span>Hálito Fresco</span><span>Proteção Diária</span><span>Flúor Ativo</span><span>Sabor Menta</span><span>Dentes Limpos</span><span>Qualidade Nacional</span><span>Cáries Zero</span>
+    <span>Sorriso Saudável</span><span>Hálito Fresco</span><span>Proteção Diária</span><span>Flúor Ativo</span><span>Sabor Menta</span><span>Dentes Limpos</span><span>Qualidade Nacional</span><span>Cáries Zero</span>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-img reveal">
+      <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/DOBRA-3.webp" alt="Benefícios do Creme Dental Bolsonaro"/>
+    </div>
+    <div>
+      <div class="section-tag reveal">Benefícios Principais</div>
+      <h2 class="section-h reveal">O que faz a <em>diferença</em><br/>no seu sorriso</h2>
+      <div class="benefit-list">
+        <div class="benefit-item reveal">
+          <div class="benefit-icon">🦷</div>
+          <div>
+            <h3>Dentes Limpos</h3>
+            <p>Remove placa bacteriana de forma eficiente, proporcionando limpeza profunda a cada escovação.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <div class="benefit-icon">💨</div>
+          <div>
+            <h3>Hálito Fresco</h3>
+            <p>Sabor suave de menta que mantém o hálito agradável e refrescante por horas.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <div class="benefit-icon">🛡️</div>
+          <div>
+            <h3>Proteção Diária contra Cáries</h3>
+            <p>Flúor ativo fortalece o esmalte dental e auxilia na prevenção de cáries no uso cotidiano.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <div class="benefit-icon">😁</div>
+          <div>
+            <h3>Sensação de Confiança ao Sorrir</h3>
+            <p>Cuidar do sorriso é cuidar da autoestima. Sinta a diferença e sorria com orgulho.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KITS -->
+<section class="kits" id="kits">
+  <div class="kits-header">
+    <div class="section-tag reveal" style="background:var(--green);color:#fff">Escolha seu Kit</div>
+    <h2 class="section-h reveal" style="color:var(--white)">Kit <em>Ideal</em> para você</h2>
+  </div>
+  <div class="kits-grid">
+
+    <!-- 1 unidade -->
+    <div class="kit-card reveal">
+      <div class="kit-type">Tratamento 3 meses</div>
+      <h3>1 Unidade</h3>
+      <div class="kit-img">
+        <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/01.webp" alt="1 Unidade"/>
+      </div>
+      <div class="kit-price"><sup>R$</sup>29,90</div>
+      <div class="kit-info">&nbsp;</div>
+      <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
+      <a href="#" class="kit-btn outline">COMPRAR AGORA</a>
+    </div>
+
+    <!-- 3 unidades -->
+    <div class="kit-card best reveal">
+      <div class="kit-badge">⭐ MAIS ECONÔMICO</div>
+      <div class="kit-type">Tratamento 5 meses</div>
+      <h3>3 Unidades</h3>
+      <div class="kit-img">
+        <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/3-unidades.webp" alt="3 Unidades"/>
+      </div>
+      <div class="kit-price"><sup>R$</sup>79,90</div>
+      <div class="kit-info">Estoque garantido</div>
+      <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
+      <a href="#" class="kit-btn">COMPRAR AGORA</a>
+    </div>
+
+    <!-- 6 unidades -->
+    <div class="kit-card reveal">
+      <div class="kit-type">Tratamento 12 meses</div>
+      <h3>6 Unidades</h3>
+      <div class="kit-img">
+        <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/06unid.webp" alt="6 Unidades"/>
+      </div>
+      <div class="kit-price"><sup>R$</sup>149,90</div>
+      <div class="kit-info free">🚚 FRETE GRÁTIS</div>
+      <div class="kit-seal"><img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo Garantia"/></div>
+      <a href="#" class="kit-btn outline">COMPRAR AGORA</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SABIA QUE -->
+<section class="sabia">
+  <div class="sabia-inner">
+    <div>
+      <div class="section-tag reveal" style="background:var(--yellow)">Você Sabia Que</div>
+      <h2 class="section-h reveal">O creme certo faz<br/>toda a <em>diferença</em></h2>
+      <div class="sabia-list">
+        <div class="sabia-item reveal">
+          <div class="sabia-check">✔</div>
+          <p>Uma boa escovação com o creme certo faz diferença real na saúde bucal.</p>
+        </div>
+        <div class="sabia-item reveal">
+          <div class="sabia-check">✔</div>
+          <p>Cuidar do sorriso é cuidar da autoestima e da confiança no dia a dia.</p>
+        </div>
+        <div class="sabia-item reveal">
+          <div class="sabia-check">✔</div>
+          <p>O uso diário de um creme com flúor ajuda a prevenir cáries e manter o hálito agradável.</p>
+        </div>
+        <div class="sabia-item reveal">
+          <div class="sabia-check">✔</div>
+          <p><strong>O Bolsonaro Creme Dental</strong> foi criado para quem valoriza um sorriso bem cuidado.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/DOBRA33.webp" alt="Creme Dental Bolsonaro" style="width:100%;border-radius:12px;"/>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps">
+  <div class="section-tag reveal">Como Usar</div>
+  <h2 class="section-h reveal">4 Passos para o sorriso <em>perfeito</em></h2>
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <div class="step-num">01</div>
+      <h3>Coloque na escova</h3>
+      <p>Aplique uma pequena porção do creme dental na escova — já é suficiente.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">02</div>
+      <h3>Escove 2 a 3 min</h3>
+      <p>Faça movimentos suaves cobrindo toda a superfície dos dentes e gengivas.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">03</div>
+      <h3>Repita 3x ao dia</h3>
+      <p>Para máxima proteção, escove após as principais refeições do dia.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">04</div>
+      <h3>Sinta a diferença</h3>
+      <p>Dentes mais brancos e hálito renovado desde o primeiro uso!</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULA -->
+<section class="formula">
+  <div class="section-tag reveal" style="background:var(--green);color:#fff">Composição</div>
+  <h2 class="section-h reveal">Fórmula <em>exclusiva</em></h2>
+  <div class="formula-grid">
+    <div class="formula-card reveal">
+      <div class="formula-icon">🔬</div>
+      <div>
+        <h3>Flúor Ativo</h3>
+        <p>Cuidado essencial contra cáries — fortalece o esmalte e protege a cada escovação.</p>
+      </div>
+    </div>
+    <div class="formula-card reveal">
+      <div class="formula-icon">🌿</div>
+      <div>
+        <h3>Sabor Menta</h3>
+        <p>Hálito refrescante e agradável — suave e ideal para o uso diário de toda a família.</p>
+      </div>
+    </div>
+    <div class="formula-card reveal">
+      <div class="formula-icon">⚗️</div>
+      <div>
+        <h3>Equilíbrio Ideal</h3>
+        <p>Ingredientes balanceados para uso diário — seguro para adultos e crianças acima de 6 anos.</p>
+      </div>
+    </div>
+    <div class="formula-card reveal">
+      <div class="formula-icon">🇧🇷</div>
+      <div>
+        <h3>Qualidade Nacional</h3>
+        <p>Produzido com tecnologia e qualidade brasileira, sob rigoroso controle de produção.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-container">
+    <div class="section-tag reveal">Dúvidas</div>
+    <h2 class="section-h reveal">Perguntas <em>Frequentes</em></h2>
+
+    <div class="faq-item reveal">
+      <button class="faq-q">O creme dental realmente ajuda na limpeza dos dentes? <i class="arrow">+</i></button>
+      <div class="faq-a">Sim! Sua fórmula foi desenvolvida para promover uma escovação eficiente e refrescante, com flúor ativo que limpa, protege e fortalece o esmalte dental.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q">Tem sabor forte? <i class="arrow">+</i></button>
+      <div class="faq-a">Não. Possui sabor suave de menta, refrescante e agradável para toda a família — incluindo crianças acima de 6 anos.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q">Pode ser usado por toda a família? <i class="arrow">+</i></button>
+      <div class="faq-a">Sim, é indicado para uso diário de adultos e crianças acima de 6 anos, sempre sob supervisão dos responsáveis.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q">Tem quantidade ideal de uso? <i class="arrow">+</i></button>
+      <div class="faq-a">Sim. Uma pequena porção (do tamanho de uma ervilha) já é suficiente para uma escovação completa e eficiente.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q">Em quanto tempo percebo diferença na sensação de frescor? <i class="arrow">+</i></button>
+      <div class="faq-a">Desde o primeiro uso você já sente o hálito mais refrescante e agradável. Com o uso contínuo, os benefícios só aumentam.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <h2 class="reveal">O movimento começa<br/>no seu <em>sorriso</em></h2>
+  <p class="reveal">Mais do que um produto, o Bolsonaro Creme Dental é um símbolo de cuidado e confiança. Transforme sua rotina de higiene em um momento de bem-estar.</p>
+  <a href="#kits" class="final-btn reveal">FAZER PARTE DO MOVIMENTO AGORA</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>2025 © Bolsonaro Creme Dental · Todos os direitos reservados</div>
+  <div class="footer-links">
+    <a href="#">Termos de uso</a>
+    <a href="#">Políticas de privacidade</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
